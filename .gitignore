@@ -1,0 +1,155 @@
+# .gitignore for a TypeScript full-stack project
+# Keep sensitive/local files, build output, caches, and editor-specific files out of git.
+
+### Node
+node_modules/
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+### Env files (local secrets)
+.env
+.env.*.local
+.env.local
+# Allow keeping an example env file in the repo
+!.env.example
+
+### Build / output
+dist/
+build/
+out/
+lib/
+esm/
+cjs/
+.next/
+.nuxt/
+.svelte-kit/
+.vercel/
+.public/
+public/
+.bundle/
+.tmp/
+.temp/
+.DIST/
+
+# TypeScript incremental/build cache
+*.tsbuildinfo
+
+### Compiled JavaScript (if not intentionally committed)
+# Ignore compiled JS and maps in top-level folders commonly used for output
+*.js
+*.cjs
+*.mjs
+*.js.map
+*.map
+
+# If your project intentionally checks compiled files into source control,
+# remove the patterns above or narrow them to specific directories (eg: /dist)
+
+### Coverage, tests, and reports
+coverage/
+coverage-final.json
+.nyc_output/
+jest/coverage/
+jest-test-results.json
+test-results/
+mocha-*.json
+
+### Caches
+.cache/
+.parcel-cache/
+.pnp.cjs
+.pnp.js
+.pnp.*
+.cache-loader/
+
+### Package manager stores
+.pnpm-store/
+.pnpm-debug.log
+
+### IDEs and editors
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+*.code-workspace
+.history/
+
+### OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+Icon?
+
+### Containers / OS runtime
+docker-compose.override.yml
+Dockerfile.*.local
+
+### Misc runtime files, locks and pids
+npm-debug.log*
+yarn-debug.log*
+*.log
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+### Process managers
+pm-debug.log
+pms-debug.log
+pm2.pid
+pm2.log
+
+### Editor swap / temp files
+*~
+*.swp
+*.swo
+*.tmp
+*.temp
+*.bak
+*.orig
+
+### TypeDoc / generated docs
+docs/dist/
+typedoc-default-themes/
+
+### Framework / Tooling specific
+# Next.js
+.next/
+# Nuxt.js
+.nuxt/
+# Gatsby
+.cache/
+public/
+# Expo
+.expo/
+# SvelteKit
+.svelte-kit/
+# Vite build output
+dist/
+# Parcel
+.parcel-cache/
+
+### CI / local env overrides
+.env.ci
+.env.test
+.env.production.local
+
+### Security / secrets
+secrets*
+*.pem
+*.key
+*.crt
+
+### Node REPL
+.node_repl_history
+
+### Lockfiles you might want to ignore if generated locally (OPTIONAL)
+# Uncomment if you do not want to commit lockfiles produced by other dev tools
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# End of .gitignore

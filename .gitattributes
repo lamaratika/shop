@@ -1,0 +1,34 @@
+# Set default behavior, in case users don't have core.autocrlf set
+* text=auto eol=lf
+
+# Ensure certain binary files are treated as binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.zip binary
+*.gz binary
+*.tar.gz binary
+*.tgz binary
+*.bz2 binary
+*.7z binary
+*.pdf binary
+*.mov binary
+*.mp4 binary
+*.mp3 binary
+*.wav binary
+
+# Mark lockfiles as text to avoid CRLF issues
+package-lock.json text eol=lf
+pnpm-lock.yaml text eol=lf
+yarn.lock text eol=lf
+
+# Ensure script files are executable when checked out on Unix
+*.sh eol=lf
+
+# Prevent accidental normalization for certain generated files
+*.min.js -text
+*.bundle.js -text
+
+# End of .gitattributes
