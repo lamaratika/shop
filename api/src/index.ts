@@ -1,5 +1,5 @@
 // Entry point: require and execute the server main function
-const serverModule = require('./server');
+import * as serverModule from './server.js';
 
 if (typeof serverModule.main === 'function') {
 	serverModule.main();

@@ -1,10 +1,11 @@
 import type { Server } from 'http';
-const http = require('http');
+import { createServer} from 'http';
 
+// Main function to start the server. Returns the Server instance.
 function main(): Server {
   const port = Number(process.env.PORT ?? 3000);
 
-  const server: Server = http.createServer((req: any, res: any) => {
+  const server: Server = createServer((req: any, res: any) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain; charset=utf-8');
     res.end('Hello from API server\n');
@@ -19,5 +20,4 @@ function main(): Server {
   return server;
 }
 
-// CommonJS export so this file works with the project's current "type": "commonjs"
-module.exports = { main };
+export { main };
