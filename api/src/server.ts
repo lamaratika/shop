@@ -9,47 +9,65 @@ import { healthHandler } from "./healthHandler.js";
 
 const cssHomePageStyles = cssHomePage();
 
+function logRequest(req: any) {
+  console.info(`${req.method} ${req.url}`);
+}
+
+function logResponse(res: any) {
+  console.info(`Response: ${res.statusCode}`);
+}
+
+function unknownHandler(res: any) {
+  res.writeHead(404, { "Content-Type": "application/json" });
+  res.end(JSON.stringify({ error: "Not Found" }));
+}
+
+function stylesHandler(res: any) {
+  res.writeHead(200, { "Content-Type": "text/css" });
+  return "";
+}
+
+function badRequestHandler(res: any) {
+  res.writeHead(400, { "Content-Type": "application/json" });
+  res.end(JSON.stringify({ error: "Bad Request" }));
+}
+
 function requestListener(req: any, res: any) {
+  logRequest(req);
   switch (req.method) {
     case "GET":
       break;
     case "HEAD":
       res.writeHead(200);
-      res.end();
       return;
     case "POST":
     case "PUT":
     case "DELETE":
     case "PATCH":
-    default:
-      res.writeHead(405, { "Content-Type": "application/json" });
-      res.end(JSON.stringify({ error: "Method Not Allowed" }));
-      return;
   }
+
+  let response = "";
+
   switch (req.url) {
     case "/":
     case "/index":
-      indexHandler(res);
-      return;
+      response = indexHandler(res);
     case "/favicon.ico":
-      faviconHandler(res);
-      return;
+      response = faviconHandler(res);
     case "/styles.css":
-      res.writeHead(200, { "Content-Type": "text/css" });
-      res.end(cssHomePageStyles);
+      response = stylesHandler(res);
       return;
     case "/health":
-      healthHandler(res);
+      response = healthHandler(res);
       return;
     case "/not-found":
-      notFoundHandler(res);
-      return;
+      response = notFoundHandler(res);
     case "/error":
-      errorHandler(res);
-      return;
+      response = errorHandler(res);
     default:
-      notFoundHandler(res);
-      break;
+      badRequestHandler(res);
+      logResponse(res);
+      unknownHandler(res);
   }
 }
 

@@ -1,9 +1,9 @@
 import { normalize, resolve, dirname } from "path/posix";
-import type pug from "pug";
+import pug from "pug";
 import { fileURLToPath } from "url";
 
 function getHomepagePath(folder: string): string {
-  const viewsPath = normalize(resolve(folder, "../views"));
+  const viewsPath = normalize(resolve(folder, "./views"));
   const homePagePath = viewsPath + "/home/index.pug";
   return homePagePath;
 }
