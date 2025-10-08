@@ -1,5 +1,16 @@
 import type { Server } from "http";
 import { createServer } from "http";
+import { resolve, normalize } from "path";
+import pug from "pug";
+import { dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const viewsPath = normalize(resolve(__dirname, "../views"));
+const homePagePath = viewsPath + "/home/index.pug";
+const homePage = pug.compileFile(homePagePath, { pretty: true })({
+  title: "Home",
+});
 
 function healthHandler(res: any) {
   res.writeHead(200, { "Content-Type": "application/json" });
@@ -13,7 +24,7 @@ function notFoundHandler(res: any) {
 
 function indexHandler(res: any) {
   res.writeHead(200, { "Content-Type": "application/json" });
-  res.end(JSON.stringify({ message: "Welcome to the API" }));
+  res.end(homePage);
 }
 
 function faviconHandler(res: any) {
