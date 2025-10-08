@@ -28,7 +28,7 @@ function notFoundHandler(res: any) {
 }
 
 function indexHandler(res: any) {
-  res.writeHead(200, { "Content-Type": "application/json" });
+  res.writeHead(200, { "Content-Type": "text/html" });
   res.end(homePage);
 }
 
@@ -66,6 +66,10 @@ function requestListener(req: any, res: any) {
       return;
     case "/favicon.ico":
       faviconHandler(res);
+      return;
+    case "/styles.css":
+      res.writeHead(200, { "Content-Type": "text/css" });
+      res.end("body { font-family: Arial, sans-serif; }");
       return;
     case "/health":
       healthHandler(res);
