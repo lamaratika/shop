@@ -11,10 +11,33 @@ function notFoundHandler(res: any) {
   res.end(JSON.stringify({ error: "Not Found" }));
 }
 
+function indexHandler(res: any) {
+  res.writeHead(200, { "Content-Type": "application/json" });
+  res.end(JSON.stringify({ message: "Welcome to the API" }));
+}
+
+function faviconHandler(res: any) {
+  res.writeHead(204);
+  res.end();
+}
+
+function errorHandler(res: any) {
+  res.writeHead(500, { "Content-Type": "application/json" });
+  res.end(JSON.stringify({ error: "Internal Server Error" }));
+}
+
 function requestListener(req: any, res: any) {
   switch (req.method) {
     case "GET":
       break;
+    case "HEAD":
+      res.writeHead(200);
+      res.end();
+      return;
+    case "POST":
+    case "PUT":
+    case "DELETE":
+    case "PATCH":
     default:
       res.writeHead(405, { "Content-Type": "application/json" });
       res.end(JSON.stringify({ error: "Method Not Allowed" }));
@@ -23,12 +46,10 @@ function requestListener(req: any, res: any) {
   switch (req.url) {
     case "/":
     case "/index":
-      res.writeHead(200, { "Content-Type": "application/json" });
-      res.end(JSON.stringify({ message: "Welcome to the API" }));
+      indexHandler(res);
       return;
     case "/favicon.ico":
-      res.writeHead(204);
-      res.end();
+      faviconHandler(res);
       return;
     case "/health":
       healthHandler(res);
@@ -37,8 +58,7 @@ function requestListener(req: any, res: any) {
       notFoundHandler(res);
       return;
     case "/error":
-      res.writeHead(500, { "Content-Type": "application/json" });
-      res.end(JSON.stringify({ error: "Internal Server Error" }));
+      errorHandler(res);
       return;
     default:
       notFoundHandler(res);
