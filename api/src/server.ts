@@ -8,7 +8,14 @@ function main(): Server {
   const server: Server = createServer((req: any, res: any) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain; charset=utf-8');
-    res.end('Hello from API server\n');
+
+
+
+    if (req.url === '/health') {
+      res.end('OK');
+    } else {
+      res.end('Hello, World!\n');
+    }
   });
 
   // Start listening synchronously (no await). Caller receives the Server instance.
