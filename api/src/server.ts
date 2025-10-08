@@ -41,6 +41,7 @@ function requestListener(req: any, res: any) {
       res.end(JSON.stringify({ error: "Internal Server Error" }));
       return;
     default:
+      notFoundHandler(res);
       break;
   }
 }
