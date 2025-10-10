@@ -1,9 +1,9 @@
 {
-  "name": "api",
+  "name": "shop-api-lamarati",
   "version": "1.0.0",
-  "description": "",
-  "license": "ISC",
-  "author": "",
+  "description": "A shop api for lamarati project",
+  "license": "Apache-2.0",
+  "author": "Nicolas Andres Ramirez Parra",
   "type": "module",
   "main": "index.js",
   "scripts": {
@@ -20,6 +20,9 @@
     "format": "prettier --write \"**/*.{ts,tsx,js,json,md}\"",
     "lint": "eslint . --ext .ts,.tsx,.js --max-warnings=0"
   },
+  "dependencies": {
+    "pug": "^3.0.3"
+  },
   "devDependencies": {
     "@types/node": "^24.7.0",
     "@types/pug": "^2.0.10",
@@ -27,8 +30,5 @@
     "@typescript-eslint/parser": "^6.9.0",
     "eslint": "^8.49.0",
     "typescript": "^5.9.3"
-  },
-  "dependencies": {
-    "pug": "^3.0.3"
   }
 }
