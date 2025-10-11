@@ -1,34 +1,37 @@
 {
-  "name": "shop-api-lamarati",
-  "version": "1.0.0",
-  "description": "A shop api for lamarati project",
-  "license": "Apache-2.0",
-  "author": "Nicolas Andres Ramirez Parra",
-  "type": "module",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "node --watch ./dist/index.js",
-    "build:watch": "tsc --watch",
-    "run": "node ./dist/index.js",
-    "start": "node ./dist/index.js",
-    "dev": "tsc --watch & nodemon dist/index.js",
-    "dev:debug": "tsc --watch & nodemon --inspect dist/index.js",
-    "dev:debug-brk": "tsc --watch & nodemon --inspect-brk dist/index.js",
-    "dev:debug-port": "tsc --watch & nodemon",
-    "build": "tsc",
-    "format": "prettier --write \"**/*.{ts,tsx,js,json,md}\"",
-    "lint": "eslint . --ext .ts,.tsx,.js --max-warnings=0"
-  },
-  "dependencies": {
-    "pug": "^3.0.3"
-  },
-  "devDependencies": {
-    "@types/node": "^24.7.0",
-    "@types/pug": "^2.0.10",
-    "@typescript-eslint/eslint-plugin": "^6.9.0",
-    "@typescript-eslint/parser": "^6.9.0",
-    "eslint": "^8.49.0",
-    "typescript": "^5.9.3"
-  }
+    "name": "shop-api-lamarati",
+    "version": "1.0.0",
+    "description": "A shop api for lamarati project",
+    "license": "Apache-2.0",
+    "author": "Nicolas Andres Ramirez Parra",
+    "type": "module",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "watch": "node --watch ./dist/index.js",
+        "build:watch": "tsc --watch",
+        "run": "node ./dist/index.js",
+        "start": "node ./dist/index.js",
+        "dev": "tsc --watch & nodemon dist/index.js",
+        "dev:debug": "tsc --watch & nodemon --inspect dist/index.js",
+        "dev:debug-brk": "tsc --watch & nodemon --inspect-brk dist/index.js",
+        "dev:debug-port": "tsc --watch & nodemon",
+        "build": "tsc",
+        "format": "prettier --write \"**/*.{ts,tsx,js,json,md}\"",
+        "build:tailwind": "npx @tailwindcss/cli -i ./styles/globals.css -o ./public/styles.css --watch",
+        "lint": "eslint . --ext .ts,.tsx,.js --max-warnings=0"
+    },
+    "dependencies": {
+        "pug": "^3.0.3"
+    },
+    "devDependencies": {
+        "@tailwindcss/cli": "^4.1.14",
+        "@types/node": "^24.7.0",
+        "@types/pug": "^2.0.10",
+        "@typescript-eslint/eslint-plugin": "^6.9.0",
+        "@typescript-eslint/parser": "^6.9.0",
+        "eslint": "^8.49.0",
+        "tailwindcss": "^4.1.14",
+        "typescript": "^5.9.3"
+    }
 }

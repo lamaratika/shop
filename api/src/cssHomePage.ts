@@ -1,5 +1,6 @@
 export function cssHomePage(): string {
-  return `
+    return `
+@import "tailwindcss";
   body {
     font-family: Arial, sans-serif;
     margin: 0;

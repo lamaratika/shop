@@ -1,8 +1,5 @@
-node_modules
-dist
+# Ignore artifacts:
 build
 coverage
-.next
-.turbo
-.vite
-.parcel-cache
+dist
+node_modules
